@@ -3,9 +3,18 @@ import Todo from './Todo';
 
 
 
-class Todolist extends Component {
+export default class Todolist extends Component {
 
     render() {
+
+        if (this.props.isLoading) {
+            return <h2>is loding....</h2>;
+        }
+
+        if (this.props.hasError) {
+            return <h2>error</h2>;
+        }
+
         const todos = this.props.todos.map(todo =>
             <Todo
                 key={todo.id}
@@ -22,7 +31,6 @@ class Todolist extends Component {
     }
 }
 
-export default Todolist
 
 {
     // 親コンポーネントから渡されたものは this.propsを使って受け取ることができる
