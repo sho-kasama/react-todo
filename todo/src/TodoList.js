@@ -3,16 +3,30 @@ import Todo from './Todo';
 
 
 
-class Todolist extends Component {
+export default class Todolist extends Component {
 
     render() {
-        const todos = this.props.todos.map(todo =>
-            <Todo
-                key={todo.id}
-                {...todo}
-                setTodoStatus={this.props.setTodoStatus}
-            />
-        )
+        if (this.props.hasError) {
+            return <h2>error</h2>;
+        }
+        if (this.props.isLoading) {
+            return <h2>loading....</h2>;
+        }
+        const todos = [];
+        for (var i = 0; i < this.props.todos.length; i++) {
+            todos.push(
+                <Todo
+                    key={i}
+                    index={i}
+                    countTodo={this.props.todos[i].countTodo}
+                    title={this.props.todos[i].title}
+                    desc={this.props.todos[i].desc}
+                    done={this.props.todos[i].done}
+                    setTodoStatus={this.props.setTodoStatus}
+                    deleteTodoState={this.props.deleteTodoState}
+                />
+            );
+        }
 
         return (
             <ul>
@@ -20,14 +34,4 @@ class Todolist extends Component {
             </ul>
         );
     }
-}
-
-export default Todolist
-
-{
-    // 親コンポーネントから渡されたものは this.propsを使って受け取ることができる
-    // TodoListから複数のTodoができる時など、子コンポーネントに同じ形式の配列を渡すときは、それらを区別するための絶対に重複しないkeyを設定する必要がある
-    // 今回は todo.idをkeyに入れている
-    // {...todo}はtodoに入っている要素を全て引き継ぐという意味です
-    // returnで配列の入ったtodosを返すことでTodoコンポーネントでpropsとして受け取ることができます。{}で変数展開ができます。
 }
