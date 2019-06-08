@@ -35,3 +35,19 @@ export default class Todolist extends Component {
         );
     }
 }
+
+{
+
+    // this.propsで親コンポーネントから(app.js)からhasErrorとisLoadingをとってきて、
+    // 条件分岐をしているß
+    // App.jsで関数setTodoStatus()をTodoListに渡し、そこからさらにTodoに渡します
+    // 
+
+
+
+
+
+
+
+
+}

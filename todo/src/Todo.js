@@ -19,3 +19,14 @@ export default class from extends Component {
         );
     }
 }
+
+
+{
+
+    // onClick時にsetTodoStatusが発火するようにしてます。
+    // classNameも doneの true/false に合わせて切り替わるように三項演算子で記述している
+
+
+
+
+}

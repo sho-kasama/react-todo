@@ -15,3 +15,10 @@ export default class Form extends Component {
         );
     }
 }
+
+
+{
+    // div className="form" ⇦ これでformタグを記述するという設定をしている
+    // propsとして受け取った handleSubmitをonSubmit時に発火するようにします。
+    // この時、App.jsで定義した handleSubmit()の処理が動き、Todoの投稿ができるようになりました
+}
